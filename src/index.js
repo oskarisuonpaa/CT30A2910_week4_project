@@ -1,14 +1,13 @@
-const submitBtn = document.querySelector("#submit-data");
+const searchBtn = document.querySelector("#submit-data");
+const form = document.querySelector("form");
 
-submitBtn.addEventListener("click", submitButton, false);
-
-function submitButton(event) {
-  event.preventDefault();
+searchBtn.addEventListener("click", function () {
   const q = document.querySelector("#input-show").value;
   fetchData(q);
-}
+  form.reset();
+});
 
-function fetchData(q) {
+async function fetchData(q) {
   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = () => {
     if (xhttp.readyState === XMLHttpRequest.DONE) {
@@ -57,3 +56,5 @@ function clearView() {
     show.remove();
   });
 }
+
+console.log("Hello");
